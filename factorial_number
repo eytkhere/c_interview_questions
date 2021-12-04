@@ -1,0 +1,12 @@
+int main()
+{
+    printf("Enter number:\t");
+    int user_num;
+    scanf("%d", &user_num);
+    int i;
+    int sum = 1;
+    for(i = user_num; i>=1; i--){
+        sum=sum*i;
+    }
+    printf("%d", sum);
+}
