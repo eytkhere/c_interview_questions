@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // 0x -> means hexa
+    // >> shift right -> divide by 2
+    // << shift left -> multiply by 2
+    // we want to change a specific bit to 1 but only if its 0
+    // in this example i use i = 1, but should work for all
+    char bit_1 = 0x5; // 0101
+    int i;
+    printf("Which bit place would you like to change?\n");
+    scanf("%d", &i);
+    char bit_2;
+    char bit_3;
+    bit_2 = bit_1 >> i;
+    printf("%d\n", bit_2);  // after slashing number
+    // check LSB by negating comparison to 1
+    if(!(bit_2 & 1)){
+        bit_2 = bit_2 ^ 1; // 011
+        printf("is a 0\n");
+    }else{
+        printf("Not a 0\n");
+    }
+    printf("%d\n", bit_2);
+    bit_2 = bit_2 << i;     // we must shift back
+    printf("%d\n", bit_2);  // 0110
+    bit_3 = bit_2 | bit_1;  // we need to return all the values we cut off
+    printf("%d", bit_3);    // 0111 -> 7
+}
