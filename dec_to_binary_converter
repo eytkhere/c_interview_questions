@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // *NOTE* - a very slow program but very basic to understand and implement
+    int i=0, num1, temp1;
+    // allocating dynamic memory in the heap (malloc)
+    int* bit_arr = (int*)malloc(sizeof(int));
+    // requesting user for number in decimal form
+    printf("Enter number:\n");
+    scanf("%d", &num1);
+    temp1 = num1;
+    // doing binary calculation and saving in dynamic array
+    while(temp1 > 0){
+        bit_arr[i] = temp1%2;
+        temp1=temp1/2;
+        i++;
+    }
+    // outputting each element of the array in backwards form -> shows MSB to LSB
+    for(i; i > 0; i-- ){
+        printf("%d", bit_arr[i-1]); // must start 1 less than i -> because it include 0'th place in an array
+    }
+    // free dynamic array -> don't waste memory!
+    free(bit_arr);
+}
