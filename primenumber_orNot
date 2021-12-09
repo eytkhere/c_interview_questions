@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+// Boolean=0 -> means False(Not a prime number)
+
+int sqrt_f(int num){
+    int sqrt_num, bool_num=0;
+    sqrt_num=sqrt(num);
+    int i;
+    for(i=2; i<=sqrt_num; i++){
+        if(num%i==0){
+            bool_num=1;
+            break;
+        }
+    }
+    return(bool_num);
+}
+
+int main()
+{
+    printf("Enter number to check if prime or not:\n");
+    int num1, bool_result;
+    scanf("%d", &num1);
+    bool_result=sqrt_f(num1);
+    if(bool_result!=0){
+        printf("\nNot a prime number!");
+    }else{
+        printf("\nA prime number!");
+    }
+    return(0);
+}
